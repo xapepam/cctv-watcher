@@ -1,0 +1,25 @@
+pkgbase = cctv-watcher-wayland
+	pkgdesc = Application for CCTV cameras monitoring (Wayland/Plasma 6 tray fix)
+	pkgver = 0.4.0
+	pkgrel = 1
+	url = https://github.com/xapepam/cctv-watcher
+	arch = x86_64
+	arch = aarch64
+	license = GPL-3.0-only
+	makedepends = vala
+	makedepends = meson
+	makedepends = ninja
+	depends = gtk3
+	depends = libgee
+	depends = gstreamer
+	depends = gst-plugins-base
+	depends = gst-libav
+	depends = gst-plugin-gtk
+	depends = libgudev
+	depends = libayatana-appindicator
+	provides = cctv-watcher
+	conflicts = cctv-watcher
+	source = cctv-watcher-wayland-0.4.0.tar.gz::https://github.com/xapepam/cctv-watcher/archive/v0.4.0.tar.gz
+	sha256sums = 2e828f90494cf6f0695639630c1e7431af6cde03b8dba74d774b609d79ef1f8e
+
+pkgname = cctv-watcher-wayland

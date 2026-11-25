@@ -1,0 +1,25 @@
+# Maintainer: xapepam <xapepam@users.noreply.github.com>
+pkgname=cctv-watcher-wayland
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="Application for CCTV cameras monitoring (Wayland/Plasma 6 tray fix)"
+url="https://github.com/xapepam/cctv-watcher"
+arch=('x86_64' 'aarch64')
+license=('GPL-3.0-only')
+makedepends=('vala' 'meson' 'ninja')
+depends=('gtk3' 'libgee' 'gstreamer' 'gst-plugins-base' 'gst-libav' 'gst-plugin-gtk' 'libgudev' 'libayatana-appindicator')
+provides=('cctv-watcher')
+conflicts=('cctv-watcher')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/xapepam/cctv-watcher/archive/v$pkgver.tar.gz")
+sha256sums=('2e828f90494cf6f0695639630c1e7431af6cde03b8dba74d774b609d79ef1f8e')
+
+build() {
+	cd "$srcdir/cctv-watcher-$pkgver"
+	meson setup build --prefix=/usr
+	ninja -C build
+}
+
+package() {
+	cd "$srcdir/cctv-watcher-$pkgver"
+	DESTDIR="$pkgdir" ninja -C build install
+}
